@@ -1,16 +1,13 @@
 # list_of_employees_task
 
-A new Flutter project.
+A new Flutter task that shows a list of employees when you press a button.
 
-## Getting Started
+**Features:**
 
-This project is a starting point for a Flutter application.
+- Displays a list of employees when you press a button.
+- Each employee is shown in a `ListTile` widget.
+- Each employee has his name and salary.
 
-A few resources to get you started if this is your first Flutter project:
+**Dependencies:**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Uses the `Dio` package to Control the api services.

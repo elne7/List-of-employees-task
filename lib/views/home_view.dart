@@ -15,7 +15,6 @@ class _HomeViewState extends State<HomeView> {
 
   getEmployees() async {
     employees = await GetAllEmployees().getAllEmployees();
-    // setState(() {});
   }
 
   @override
