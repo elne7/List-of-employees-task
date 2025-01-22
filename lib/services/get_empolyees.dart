@@ -1,14 +1,12 @@
-import 'package:http/http.dart' as http;
 import 'package:dio/dio.dart';
-import 'package:list_of_employees_task/api_class.dart';
 import 'package:list_of_employees_task/models/employee_model.dart';
 
 class GetAllEmployees {
   String endPoint = 'https://hub.dummyapis.com/employee';
-  final dio = Dio();
+  List<EmployeeModel> employees = [];
 
   Future<List<EmployeeModel>> getAllEmployees() async {
-    List<EmployeeModel> employees = [];
+    final dio = Dio();
     try {
       final response = await dio.get(endPoint);
       var data = response.data;

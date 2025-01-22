@@ -15,6 +15,7 @@ class _HomeViewState extends State<HomeView> {
 
   getEmployees() async {
     employees = await GetAllEmployees().getAllEmployees();
+    // setState(() {});
   }
 
   @override
@@ -24,43 +25,42 @@ class _HomeViewState extends State<HomeView> {
   }
 
   display() {
-    isLoading = !isLoading;
+    isLoading = false;
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ElevatedButton(
-          onPressed: () {
-            display();
-            setState(() {});
-            print(isLoading);
-          },
-          child: Text('Display'),
-        ),
-        Expanded(
-          child: ListView.builder(
-            itemCount: employees.length,
-            itemBuilder: (context, index) {
-              return isLoading
-                  ? Center(
-                      child: CircularProgressIndicator(),
-                    )
-                  : ListTile(
-                      leading: Icon(Icons.person),
-                      title: Text(
-                        '${employees[index].firstName} ${employees[index].lastName}',
-                      ),
-                      trailing: Text(
-                        '${employees[index].salary}00 \$',
-                      ),
-                    );
+    return Scaffold(
+      body: Column(
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              display();
+              setState(() {});
             },
+            child: Text('Display'),
           ),
-        )
-      ],
+          Expanded(
+            child: ListView.builder(
+              itemCount: employees.length,
+              itemBuilder: (context, index) {
+                return isLoading
+                    ? Center(child: CircularProgressIndicator())
+                    : ListTile(
+                        leading: Icon(Icons.person),
+                        title: Text(
+                          '${employees[index].firstName} ${employees[index].lastName}',
+                        ),
+                        trailing: Text(
+                          '${employees[index].salary}00 \$',
+                        ),
+                      );
+              },
+            ),
+          )
+        ],
+      ),
     );
   }
 }
